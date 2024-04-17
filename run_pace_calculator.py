@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
+'''Run Pace Calculator
+Simple script to compute run pace based on inputs.
+'''
 import argparse
 
 def print_lap_pace(average_pace_min,average_pace_sec,distance, d_unit='km', step = None):
+    '''Prints a table of times at equally spaced intervals, as appropriate
+    for the specified distance.
+    '''
     # First, determine an appropriate step size
     if step is None:
         if distance > 1000:
@@ -12,7 +18,7 @@ def print_lap_pace(average_pace_min,average_pace_sec,distance, d_unit='km', step
             step = 5
         else:
             step = 1
-    
+
     elapsed_distance = 0.
     elapsed_seconds = 0.
     lap = 0
@@ -38,6 +44,7 @@ def print_lap_pace(average_pace_min,average_pace_sec,distance, d_unit='km', step
         print(f'{lap:3} | {elapsed_distance:7.2f} {d_unit} | {time_str}')
 
 def by_target_time(target_time : str,distance : float, d_unit : str = 'km'):
+    '''Compute and print run pace based on target time and distance.'''
     items = target_time.split(':')
     total_seconds : int = 0
     if len(items) == 3: # We have hours included
