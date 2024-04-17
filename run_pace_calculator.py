@@ -83,4 +83,3 @@ if __name__ == '__main__':
     # Select out what to do
     if args.target_time is not None:
         by_target_time(args.target_time,args.distance,d_unit=args.unit)
-
